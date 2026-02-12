@@ -4,7 +4,7 @@ set -euo pipefail
 APP_NAME="fast-mcp-confluence"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-pm2 start "uv run fast-mcp-confluence" \
+pm2 start "uv run fast-mcp-confluence --host 0.0.0.0" \
   --name "$APP_NAME" \
   --cwd "$SCRIPT_DIR" \
   --log "$SCRIPT_DIR/logs/mcp-server.log" \
