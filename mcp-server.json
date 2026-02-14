@@ -1,0 +1,27 @@
+{
+  "name": "Fast MCP Confluence",
+  "version": "0.1.0",
+  "fastmcp": ">=3.0.0",
+  "env_vars": [
+    {
+      "name": "CONFLUENCE_URL",
+      "display_name": "Confluence Instance URL",
+      "required": true,
+      "description": "Your Confluence Cloud URL (e.g., https://company.atlassian.net)",
+      "validation": "^https?://.+\\.atlassian\\.net$"
+    },
+    {
+      "name": "CONFLUENCE_EMAIL",
+      "display_name": "Confluence Email",
+      "required": true,
+      "description": "Email address for Confluence API authentication"
+    },
+    {
+      "name": "CONFLUENCE_API_TOKEN",
+      "display_name": "Confluence API Token",
+      "required": true,
+      "sensitive": true,
+      "description": "API token from id.atlassian.com"
+    }
+  ]
+}
