@@ -162,6 +162,7 @@ class Settings(BaseSettings):
     # MCP endpoint authentication (optional)
     # If set, clients must provide this key in the Authorization header
     mcp_api_key: str | None = None
+    mcp_auth_enabled: bool = True
 
     # Cache configuration
     cache_enabled: bool = True

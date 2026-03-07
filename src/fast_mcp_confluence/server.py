@@ -37,11 +37,13 @@ cache: CacheService | None = None
 if settings.cache_enabled:
     cache = CacheService(settings)
 
-# Auth provider (if MCP_API_KEY is configured)
+# Auth provider (if MCP_API_KEY is configured and auth is enabled)
 auth_provider: ApiKeyVerifier | None = None
-if settings.mcp_api_key:
+if settings.mcp_api_key and settings.mcp_auth_enabled:
     auth_provider = ApiKeyVerifier(api_key=settings.mcp_api_key)
     logger.info("MCP endpoint authentication enabled")
+elif not settings.mcp_auth_enabled:
+    logger.warning("MCP_AUTH_ENABLED=false - endpoint is UNAUTHENTICATED")
 else:
     logger.warning(
         "MCP_API_KEY not set - endpoint is UNAUTHENTICATED. "
